@@ -1,0 +1,101 @@
+[gd_scene load_steps=8 format=4 uid="uid://bicnw6rbmkhi2"]
+
+[ext_resource type="TileSet" uid="uid://dtonq2itaxro5" path="res://tilesheets/pacsheet.tres" id="1_mtrx4"]
+[ext_resource type="Script" path="res://objects/platform/character.gd" id="2_gbi07"]
+[ext_resource type="Texture2D" uid="uid://co25twmxd87bq" path="res://sprites/rat_char.png" id="3_rhpev"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4jqky"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oabq"]
+atlas = ExtResource("3_rhpev")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7skv"]
+atlas = ExtResource("3_rhpev")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8plgd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1oabq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7skv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Platform" type="Node"]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Level" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Tilemap" type="TileMapLayer" parent="Level"]
+tile_map_data = PackedByteArray("AABEAAMAAAAAAAAAAABQAAMAAAABAAAAAABFAAMAAAAAAAMAAABGAAMAAAAAAAMAAABHAAMAAAAAAAMAAABIAAMAAAAAAAMAAABPAAMAAAAAAAMAAABOAAMAAAAAAAMAAABNAAMAAAAAAAMAAABMAAMAAAAAAAMAAABEAAQAAAABAAIAAABEAAUAAAABAAIAAABEAAYAAAABAAIAAABEAAcAAAABAAIAAABEAAkAAAABAAIAAABEAAgAAAABAAIAAABEAAoAAAAAAAEAAABEAAwAAAABAAIAAABEAAsAAAAAAAAAAABEAA0AAAABAAIAAABEAA4AAAABAAIAAABEAA8AAAABAAIAAABEABAAAAABAAIAAABEABEAAAABAAIAAABEABIAAAABAAIAAABQAAQAAAAAAAIAAABQAAUAAAAAAAIAAABQAAYAAAAAAAIAAABQAAcAAAAAAAIAAABQAAgAAAABAAEAAABQAAkAAAABAAAAAABQAAoAAAAAAAIAAABQAAsAAAAAAAIAAABQAAwAAAAAAAIAAABQAA0AAAAAAAIAAABQAA4AAAAAAAIAAABQAA8AAAAAAAIAAABQABAAAAAAAAIAAABQABEAAAAAAAIAAABQABIAAAAAAAIAAABPAAkAAAAAAAMAAABOAAkAAAAAAAMAAABNAAkAAAAAAAMAAABMAAkAAAAAAAMAAABLAAkAAAAAAAMAAABKAAkAAAAAAAMAAABPAAgAAAABAAMAAABOAAgAAAABAAMAAABNAAgAAAABAAMAAABMAAgAAAABAAMAAABLAAgAAAABAAMAAABKAAgAAAABAAMAAABJAAgAAAACAAAAAABJAAkAAAACAAEAAABFAAoAAAABAAMAAABGAAoAAAABAAMAAABFAAsAAAAAAAMAAABGAAsAAAAAAAMAAABHAAoAAAADAAAAAABHAAsAAAADAAEAAABMAA4AAAADAAEAAABIAA4AAAACAAEAAABIAA0AAAACAAAAAABMAA0AAAADAAAAAABJAA4AAAAAAAMAAABKAA4AAAAAAAMAAABLAA4AAAAAAAMAAABJAA0AAAABAAMAAABKAA0AAAABAAMAAABLAA0AAAABAAMAAABEABMAAAADAAEAAABDABMAAAAAAAMAAABCABMAAAAAAAMAAABBABMAAAAAAAMAAABRABMAAAAAAAMAAABSABMAAAAAAAMAAABTABMAAAAAAAMAAABQABMAAAACAAEAAABAABMAAAAAAAAAAABUABMAAAABAAAAAABUABQAAAAAAAIAAABUABUAAAAAAAIAAABUABYAAAAAAAIAAABUABcAAAABAAEAAABAABQAAAABAAIAAABAABUAAAABAAIAAABAABYAAAABAAIAAABAABcAAAAAAAEAAABTABcAAAABAAMAAABSABcAAAABAAMAAABRABcAAAABAAMAAABQABcAAAACAAAAAABHAFkAAAABAAMAAABIAFkAAAABAAMAAABJAFkAAAABAAMAAABKAFkAAAABAAMAAABLAFkAAAABAAMAAABMAFkAAAABAAMAAABNAFkAAAABAAMAAABPAFkAAAABAAMAAABOAFkAAAABAAMAAABGAFkAAAABAAMAAABEAFkAAAABAAMAAABDAFkAAAABAAMAAABCAFkAAAABAAMAAABBAFkAAAABAAMAAABAAFkAAAABAAMAAABFAFkAAAABAAMAAABQAFkAAAADAAAAAAA/AFkAAAACAAAAAABBABcAAAABAAMAAABCABcAAAABAAMAAABDABcAAAABAAMAAABEABcAAAADAAAAAABQABgAAAAAAAIAAABQABkAAAAAAAIAAABEABgAAAABAAIAAABEABkAAAABAAIAAABIABEAAAACAAEAAABIABAAAAACAAAAAABJABEAAAAAAAMAAABKABEAAAAAAAMAAABLABEAAAAAAAMAAABJABAAAAABAAMAAABKABAAAAABAAMAAABLABAAAAABAAMAAABMABAAAAADAAAAAABMABEAAAADAAEAAABJAA8AAQAAAAAAAQBKAA8AAQAAAAAAAQBLAA8AAQAAAAAAAQA=")
+tile_set = ExtResource("1_mtrx4")
+
+[node name="Dots" type="TileMapLayer" parent="Level"]
+tile_map_data = PackedByteArray("AABKAAcAAQAAAAAAAQBLAAcAAQAAAAAAAQBMAAcAAQAAAAAAAQBNAAcAAQAAAAAAAQBOAAcAAQAAAAAAAQBPAAcAAQAAAAAAAQBKAAMAAQAAAAAAAQBKAAQAAQAAAAAAAQBKAAUAAQAAAAAAAQBKAAYAAQAAAAAAAQBJAAcAAQAAAAAAAQBIAAcAAQAAAAAAAQBHAAgAAQAAAAAAAQBGAAkAAQAAAAAAAQBIAAoAAQAAAAAAAQBKAAwAAQAAAAAAAQBLAAwAAQAAAAAAAQBJAAwAAQAAAAAAAQBBABYAAQAAAAAAAQBCABYAAQAAAAAAAQBDABYAAQAAAAAAAQBRABYAAQAAAAAAAQBSABYAAQAAAAAAAQBTABYAAQAAAAAAAQA=")
+tile_set = ExtResource("1_mtrx4")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["player"]]
+position = Vector2(600, -144)
+script = ExtResource("2_gbi07")
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_4jqky")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_8plgd")
+frame_progress = 0.338686
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(2, 2)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+
+[connection signal="body_entered" from="Level/Tilemap/Dot" to="Level/Tilemap/Dot" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Tilemap/@Area2D@80966" to="Level/Tilemap/@Area2D@80966" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Tilemap/@Area2D@80967" to="Level/Tilemap/@Area2D@80967" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/Dot" to="Level/Dots/Dot" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@71730" to="Level/Dots/@Area2D@71730" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@71731" to="Level/Dots/@Area2D@71731" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@71732" to="Level/Dots/@Area2D@71732" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@71733" to="Level/Dots/@Area2D@71733" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@71734" to="Level/Dots/@Area2D@71734" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@71735" to="Level/Dots/@Area2D@71735" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@71736" to="Level/Dots/@Area2D@71736" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@71737" to="Level/Dots/@Area2D@71737" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@71738" to="Level/Dots/@Area2D@71738" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@71739" to="Level/Dots/@Area2D@71739" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@71740" to="Level/Dots/@Area2D@71740" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@71741" to="Level/Dots/@Area2D@71741" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@71742" to="Level/Dots/@Area2D@71742" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@74307" to="Level/Dots/@Area2D@74307" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@74309" to="Level/Dots/@Area2D@74309" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@74310" to="Level/Dots/@Area2D@74310" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@74311" to="Level/Dots/@Area2D@74311" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@79950" to="Level/Dots/@Area2D@79950" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@79951" to="Level/Dots/@Area2D@79951" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@79952" to="Level/Dots/@Area2D@79952" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@79953" to="Level/Dots/@Area2D@79953" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@79954" to="Level/Dots/@Area2D@79954" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Dots/@Area2D@79955" to="Level/Dots/@Area2D@79955" method="_on_body_entered"]
